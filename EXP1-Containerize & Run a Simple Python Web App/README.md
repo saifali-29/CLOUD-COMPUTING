@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Docker-Containerization-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
 <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" />
 <img src="https://img.shields.io/badge/Flask-Web%20Application-000000?style=for-the-badge&logo=flask&logoColor=white" />
-<img src="https://img.shields.io/badge/Cloud%20Computing-Laboratory-6C63FF?style=for-the-badge" />
+<img src="https://img.shields.io/badge/Cloud%20Computing-Lab-6C63FF?style=for-the-badge" />
 <img src="https://img.shields.io/badge/Platform-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" />
 
 </p>
@@ -22,28 +22,17 @@
 
 ## 📌 Experiment Overview
 
-This experiment demonstrates the complete process of **containerizing and running a simple Python Flask web application using Docker**.
+This experiment demonstrates the process of **creating, containerizing, building, running, and managing a simple Python Flask web application using Docker**.
 
-A Flask-based web application is created and its dependency is specified using `requirements.txt`. A `Dockerfile` is then created to define the application environment and instructions required to build the Docker image.
+A Flask web application is created using Python, with its dependency specified through `requirements.txt`. A `Dockerfile` is then used to define the environment and instructions required to build the Docker image.
 
-The Docker image is used to create and run a Docker container. The Flask application is exposed through **port 5000** and accessed from a web browser using:
+The resulting Docker image is used to create and run a container. The Flask application is exposed through **port 5000** and accessed through a web browser using:
 
 ```text
 http://localhost:5000
 ```
 
-The experiment also demonstrates essential Docker operations including:
-
-- Docker installation verification
-- Docker image creation
-- Docker image inspection
-- Container creation and execution
-- Port mapping
-- Container inspection
-- Viewing container logs
-- Stopping a container
-- Starting a stopped container
-- Removing a container
+The experiment also demonstrates essential Docker container operations including image creation, container execution, port mapping, container inspection, logging, stopping, restarting, and removal.
 
 ---
 
@@ -57,9 +46,9 @@ The primary objectives of this experiment are:
 4. To build a Docker image from application files.
 5. To create and run a Docker container.
 6. To map a host port to a container port.
-7. To access the containerized application through a web browser.
+7. To access a containerized application through a web browser.
 8. To inspect running Docker containers.
-9. To view application and container logs.
+9. To view container logs.
 10. To understand the Docker container lifecycle.
 
 ---
@@ -71,7 +60,7 @@ After completing this experiment, the following concepts are demonstrated:
 | Concept | Description |
 |---|---|
 | 🐳 Docker | Platform used to build and run containers |
-| 📦 Docker Image | Reusable package containing the application and environment |
+| 📦 Docker Image | Reusable package containing the application and its environment |
 | 🚀 Docker Container | Running instance of a Docker image |
 | 📄 Dockerfile | Instructions used to build a Docker image |
 | 🐍 Flask | Lightweight Python web framework |
@@ -124,29 +113,22 @@ After completing this experiment, the following concepts are demonstrated:
 
 ```text
 Source Code
-     │
-     ▼
+     ↓
 Dockerfile
-     │
-     ▼
+     ↓
 docker build
-     │
-     ▼
+     ↓
 Docker Image
 my-python-app
-     │
-     ▼
+     ↓
 docker run
-     │
-     ▼
+     ↓
 Docker Container
 my-python-container
-     │
-     ▼
+     ↓
 Port Mapping
 5000 : 5000
-     │
-     ▼
+     ↓
 Web Browser
 localhost:5000
 ```
@@ -160,8 +142,8 @@ localhost:5000
 | 🐍 Python 3.12 | Application runtime |
 | 🌐 Flask | Web application framework |
 | 🐳 Docker | Containerization platform |
-| 📄 Dockerfile | Image build configuration |
-| 📦 requirements.txt | Dependency management |
+| 📄 Dockerfile | Docker image configuration |
+| 📦 requirements.txt | Python dependency management |
 | 💻 PowerShell | Command-line environment |
 | 🧑‍💻 Visual Studio Code | Application development |
 | 🌎 Web Browser | Application testing |
@@ -170,12 +152,12 @@ localhost:5000
 
 # 📋 Prerequisites
 
-The following software and environment are required:
+The following environment is required to perform the experiment:
 
 - Windows 10 or Windows 11
 - Docker Desktop
 - Visual Studio Code
-- Web Browser
+- Web browser
 - Internet connection
 
 Docker Desktop should be installed and running before executing the Docker commands.
@@ -193,28 +175,27 @@ docker-python-app/
 ├── README.md
 │
 └── screenshots/
-    ├── 01-docker-version.png
-    ├── 02-docker-hello-world.png
-    ├── 03-project-files.png
-    ├── 04-flask-app.png
-    ├── 05-dockerfile.png
-    ├── 06-docker-build.png
-    ├── 07-docker-images.png
-    ├── 08-docker-container.png
-    ├── 09-browser.png
-    ├── 10-container-logs.png
-    ├── 11-docker-stop.png
-    ├── 12-docker-start.png
-    └── 13-docker-remove.png
+    ├── container log.png
+    ├── created docker-images.png
+    ├── docker stopped.png
+    ├── docker-running.png
+    ├── docker-stop-resume.png
+    ├── dock-img.png
+    ├── hello-docker.png
+    ├── remove container and confirm.png
+    ├── run.png
+    └── Screenshot 2026-09-26 214946.png
 ```
+
+> The screenshots are maintained separately in the repository as practical evidence and are intentionally not embedded in this README.
 
 ---
 
-# 📄 Application Files
+# 📄 Application Components
 
 ## 1. `app.py`
 
-The Flask application is implemented using the following code:
+The Flask application is implemented using Python:
 
 ```python
 from flask import Flask
@@ -245,13 +226,13 @@ The application requires Flask.
 flask
 ```
 
-Docker installs this dependency while building the Docker image.
+Docker installs the required dependency while building the Docker image.
 
 ---
 
 # 🐳 3. `Dockerfile`
 
-The Dockerfile defines how the Docker image is created.
+The Dockerfile defines the environment and instructions used to create the Docker image.
 
 ```dockerfile
 FROM python:3.12-slim
@@ -295,13 +276,13 @@ Open PowerShell and execute:
 docker --version
 ```
 
-This verifies that Docker is installed and accessible through the command line.
+This verifies that Docker is installed and available through the command line.
 
 ---
 
-## Step 2 — Test Docker
+## Step 2 — Test Docker Installation
 
-Run the Docker Hello World container:
+Run Docker's Hello World container:
 
 ```powershell
 docker run hello-world
@@ -313,7 +294,7 @@ Expected output:
 Hello from Docker!
 ```
 
-This confirms that Docker is working correctly.
+This confirms that Docker can successfully download and run a container.
 
 ---
 
@@ -331,7 +312,7 @@ Create the project directory:
 mkdir docker-python-app
 ```
 
-Enter the directory:
+Enter the project directory:
 
 ```powershell
 cd docker-python-app
@@ -339,7 +320,7 @@ cd docker-python-app
 
 ---
 
-## Step 4 — Create the Application
+## Step 4 — Create the Application Files
 
 Create the following files:
 
@@ -349,7 +330,7 @@ requirements.txt
 Dockerfile
 ```
 
-The directory should contain:
+The project directory should contain:
 
 ```text
 docker-python-app/
@@ -363,31 +344,21 @@ docker-python-app/
 
 # 🔨 Step 5 — Build the Docker Image
 
-Run the following command from the project directory:
+Build the Docker image using:
 
 ```powershell
 docker build -t my-python-app .
 ```
 
-### Command Breakdown
+During the build process, Docker:
 
-```text
-docker build
-     │
-     ├── -t my-python-app
-     │        │
-     │        └── Docker image name
-     │
-     └── .
-          Current directory as build context
-```
-
-Docker reads the Dockerfile and creates an image containing:
-
-- Python runtime
-- Flask dependency
-- Application source code
-- Required configuration
+1. Reads the Dockerfile.
+2. Uses the Python base image.
+3. Creates the working directory.
+4. Copies the dependency file.
+5. Installs Flask.
+6. Copies the Flask application.
+7. Creates the final Docker image.
 
 The resulting image is named:
 
@@ -405,20 +376,18 @@ List the available Docker images:
 docker images
 ```
 
-Example:
+The created image should appear similar to:
 
 ```text
 REPOSITORY      TAG       IMAGE ID       SIZE
 my-python-app   latest    xxxxxxxxx      xxxMB
 ```
 
-The `my-python-app` image should appear in the list.
-
 ---
 
 # 📦 Step 7 — Create and Run the Container
 
-Run the Docker image:
+Run the Docker image as a container:
 
 ```powershell
 docker run -d -p 5000:5000 --name my-python-container my-python-app
@@ -429,10 +398,10 @@ docker run -d -p 5000:5000 --name my-python-container my-python-app
 | Option | Meaning |
 |---|---|
 | `docker run` | Creates and starts a container |
-| `-d` | Runs in detached/background mode |
+| `-d` | Runs the container in detached/background mode |
 | `-p 5000:5000` | Maps host port 5000 to container port 5000 |
 | `--name` | Assigns a custom container name |
-| `my-python-app` | Image used to create the container |
+| `my-python-app` | Docker image used to create the container |
 
 The container is named:
 
@@ -450,15 +419,15 @@ Run:
 docker ps
 ```
 
-The container should appear in the list.
+The running container should appear in the list.
 
-The port mapping should look similar to:
+The port mapping should show a value similar to:
 
 ```text
 0.0.0.0:5000->5000/tcp
 ```
 
-This confirms that:
+This confirms the connection:
 
 ```text
 Host Port 5000
@@ -477,56 +446,44 @@ Open a web browser and navigate to:
 http://localhost:5000
 ```
 
-### Expected Output
+Expected output:
 
 ```text
 Hello! My first Docker application is running.
 ```
 
----
-
-# 🔄 Application Request Flow
+The request flow is:
 
 ```text
-┌───────────────────────┐
-│      Web Browser      │
-│   localhost:5000      │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    Host Port 5000     │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    Docker Port Map    │
-│      5000 : 5000      │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│   Docker Container    │
-│      Port 5000        │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│   Flask Application   │
-└───────────────────────┘
+Web Browser
+     │
+     ▼
+Host Port 5000
+     │
+     ▼
+Docker Port Mapping
+     │
+     ▼
+Container Port 5000
+     │
+     ▼
+Flask Application
+     │
+     ▼
+Response
 ```
 
 ---
 
 # 📜 Step 10 — View Container Logs
 
-Display the container logs:
+Display the application's container logs:
 
 ```powershell
 docker logs my-python-container
 ```
 
-Container logs can be used to verify application activity and troubleshoot issues.
+Logs provide information about the application's execution and can be useful for troubleshooting.
 
 ---
 
@@ -538,13 +495,13 @@ Stop the running container:
 docker stop my-python-container
 ```
 
-Check the running containers:
+Check the currently running containers:
 
 ```powershell
 docker ps
 ```
 
-The container will no longer appear because it is stopped.
+The stopped container will no longer appear because it is not running.
 
 > **Note:** Stopping a container does not remove it.
 
@@ -558,7 +515,7 @@ Start the previously stopped container:
 docker start my-python-container
 ```
 
-Verify:
+Verify that it is running:
 
 ```powershell
 docker ps
@@ -582,7 +539,7 @@ Remove the container:
 docker rm my-python-container
 ```
 
-Check all containers:
+Verify all containers:
 
 ```powershell
 docker ps -a
@@ -590,9 +547,9 @@ docker ps -a
 
 The container should no longer exist.
 
-> **Important:** Removing a container does not remove the Docker image.
+> **Important:** Removing the container does not remove the Docker image.
 
-The image `my-python-app` remains available locally.
+The `my-python-app` image remains available locally.
 
 ---
 
@@ -634,9 +591,9 @@ The image `my-python-app` remains available locally.
 
 # 🔌 Port Mapping
 
-The application runs on port `5000` inside the Docker container.
+The Flask application listens on port `5000` inside the Docker container.
 
-The following option connects the host and container ports:
+The following option maps the host port to the container port:
 
 ```powershell
 -p 5000:5000
@@ -645,15 +602,15 @@ The following option connects the host and container ports:
 Meaning:
 
 ```text
-Host Machine                 Docker Container
+Host Machine                    Docker Container
 
-Port 5000  ────────────────► Port 5000
-                                 │
-                                 ▼
-                         Flask Application
+Port 5000  ──────────────────►  Port 5000
+                                    │
+                                    ▼
+                            Flask Application
 ```
 
-This allows the application running inside the container to be accessed through:
+This allows the application to be accessed through:
 
 ```text
 http://localhost:5000
@@ -661,7 +618,7 @@ http://localhost:5000
 
 ---
 
-# 🧪 Docker Commands Used
+# 🧪 Key Docker Commands
 
 | Command | Purpose |
 |---|---|
@@ -670,120 +627,19 @@ http://localhost:5000
 | `cd Desktop` | Navigate to Desktop |
 | `mkdir docker-python-app` | Create project directory |
 | `cd docker-python-app` | Enter project directory |
-| `dir` | Display project files |
 | `docker build -t my-python-app .` | Build Docker image |
 | `docker images` | Display Docker images |
 | `docker run -d -p 5000:5000 --name my-python-container my-python-app` | Create and run container |
 | `docker ps` | Display running containers |
 | `docker logs my-python-container` | Display container logs |
 | `docker stop my-python-container` | Stop container |
-| `docker start my-python-container` | Start container |
+| `docker start my-python-container` | Start existing container |
 | `docker rm my-python-container` | Remove container |
 | `docker ps -a` | Display all containers |
 
 ---
 
-# 🖼️ Experiment Screenshots
-
-> Screenshots captured during the practical implementation are included below as evidence of the experiment.
-
-## 01. Docker Version Verification
-
-![Docker Version](screenshots/01-docker-version.png)
-
----
-
-## 02. Docker Hello World
-
-![Docker Hello World](screenshots/02-docker-hello-world.png)
-
----
-
-## 03. Project Directory and Files
-
-![Project Files](screenshots/03-project-files.png)
-
----
-
-## 04. Flask Application
-
-![Flask Application](screenshots/04-flask-app.png)
-
----
-
-## 05. Dockerfile
-
-![Dockerfile](screenshots/05-dockerfile.png)
-
----
-
-## 06. Docker Image Build
-
-![Docker Build](screenshots/06-docker-build.png)
-
----
-
-## 07. Docker Image Verification
-
-![Docker Images](screenshots/07-docker-images.png)
-
----
-
-## 08. Running Docker Container
-
-![Docker Container](screenshots/08-docker-container.png)
-
----
-
-## 09. Flask Application in Browser
-
-![Flask Application Running](screenshots/09-browser.png)
-
----
-
-## 10. Container Logs
-
-![Container Logs](screenshots/10-container-logs.png)
-
----
-
-## 11. Stopping the Container
-
-![Docker Stop](screenshots/11-docker-stop.png)
-
----
-
-## 12. Starting the Container Again
-
-![Docker Start](screenshots/12-docker-start.png)
-
----
-
-## 13. Removing the Container
-
-![Docker Remove](screenshots/13-docker-remove.png)
-
----
-
-# 📊 Experiment Summary
-
-| Parameter | Value |
-|---|---|
-| **Experiment Number** | 1 |
-| **Experiment Title** | Containerize and Run a Simple Python Web Application |
-| **Application Type** | Python Web Application |
-| **Framework** | Flask |
-| **Python Version** | 3.12 |
-| **Base Docker Image** | `python:3.12-slim` |
-| **Docker Image** | `my-python-app` |
-| **Container Name** | `my-python-container` |
-| **Container Port** | `5000` |
-| **Host Port** | `5000` |
-| **Application URL** | `http://localhost:5000` |
-
----
-
-# 💡 Key Concepts Demonstrated
+# 🔬 Key Concepts Demonstrated
 
 ## Docker Image
 
@@ -817,43 +673,85 @@ Docker Container
 
 ---
 
-## Containerization
+## Port Mapping
 
-The application and its required environment are packaged together so that the same image can be used to create a container on another Docker-enabled system.
+Port mapping connects the host machine to the application running inside the Docker container.
 
----
-
-## Container Inspection
-
-The following command displays currently running containers:
-
-```powershell
-docker ps
+```text
+Host Machine
+Port 5000
+     │
+     ▼
+Docker Container
+Port 5000
+     │
+     ▼
+Flask Application
 ```
-
-It provides information such as:
-
-- Container ID
-- Image
-- Status
-- Port mapping
-- Container name
 
 ---
 
 ## Container Logs
 
-The command:
+The following command displays output generated by the application:
 
 ```powershell
 docker logs my-python-container
 ```
 
-displays output generated by the application running inside the container.
+Logs are useful for verifying application activity and troubleshooting problems.
 
 ---
 
-# 📈 Overall Workflow
+## Stop vs Remove
+
+### Stop
+
+```powershell
+docker stop my-python-container
+```
+
+Stops the container but keeps it available.
+
+### Start
+
+```powershell
+docker start my-python-container
+```
+
+Starts the existing stopped container again.
+
+### Remove
+
+```powershell
+docker rm my-python-container
+```
+
+Removes the container.
+
+The Docker image remains available after the container is removed.
+
+---
+
+# 📊 Experiment Summary
+
+| Parameter | Value |
+|---|---|
+| **Experiment Number** | 1 |
+| **Experiment Title** | Containerize and Run a Simple Python Web Application |
+| **Application Type** | Python Web Application |
+| **Framework** | Flask |
+| **Python Version** | 3.12 |
+| **Base Docker Image** | `python:3.12-slim` |
+| **Docker Image** | `my-python-app` |
+| **Container Name** | `my-python-container` |
+| **Container Port** | `5000` |
+| **Host Port** | `5000` |
+| **Application URL** | `http://localhost:5000` |
+
+---
+
+# 📈 Overall Architecture
 
 ```text
 ┌──────────────────────┐
@@ -900,19 +798,19 @@ The Docker image:
 my-python-app
 ```
 
-was created successfully and used to launch the container:
+was successfully created and used to launch the container:
 
 ```text
 my-python-container
 ```
 
-The Flask application was exposed through port `5000` and accessed successfully using:
+The Flask application was exposed through port `5000` and accessed through:
 
 ```text
 http://localhost:5000
 ```
 
-The experiment also demonstrated the complete Docker container lifecycle:
+The experiment successfully demonstrated the Docker workflow:
 
 ```text
 Build
@@ -936,13 +834,11 @@ Remove
 
 This experiment provided practical understanding of the fundamental concepts of **Docker-based application containerization**.
 
-A Python Flask web application was developed and packaged together with its dependency and runtime environment using a Dockerfile. A Docker image was built from these instructions and subsequently used to create and run a Docker container.
+A Python Flask web application was developed and packaged together with its dependency and runtime environment using a Dockerfile. A Docker image was built from these instructions and used to create and run a Docker container.
 
-Port mapping enabled communication between the host machine and the application running inside the container. The application was successfully accessed through a web browser using `http://localhost:5000`.
+Port mapping enabled the application running inside the container to be accessed through a web browser. The experiment also demonstrated essential container management operations including inspection, logging, stopping, restarting and removal.
 
-The experiment also demonstrated essential container management operations including inspection, logging, stopping, restarting and removal.
-
-The complete containerization workflow can therefore be summarized as:
+The complete workflow can be summarized as:
 
 ```text
 Develop
@@ -972,19 +868,16 @@ Manage
 ├── requirements.txt
 │
 └── screenshots/
-    ├── 01-docker-version.png
-    ├── 02-docker-hello-world.png
-    ├── 03-project-files.png
-    ├── 04-flask-app.png
-    ├── 05-dockerfile.png
-    ├── 06-docker-build.png
-    ├── 07-docker-images.png
-    ├── 08-docker-container.png
-    ├── 09-browser.png
-    ├── 10-container-logs.png
-    ├── 11-docker-stop.png
-    ├── 12-docker-start.png
-    └── 13-docker-remove.png
+    ├── container log.png
+    ├── created docker-images.png
+    ├── docker stopped.png
+    ├── docker-running.png
+    ├── docker-stop-resume.png
+    ├── dock-img.png
+    ├── hello-docker.png
+    ├── remove container and confirm.png
+    ├── run.png
+    └── Screenshot 2026-09-26 214946.png
 ```
 
 ---
