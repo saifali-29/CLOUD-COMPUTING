@@ -8,7 +8,7 @@
 
 In this experiment, the same Ubuntu VM configuration was created on a Type-1 hypervisor and a Type-2 hypervisor. A Sysbench CPU benchmark was then executed on both systems and the results were compared.
 
----
+--- 
 
 ## Hypervisors Used
 
